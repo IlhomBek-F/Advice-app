@@ -1,0 +1,71 @@
+body {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: #2c2c2c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.content {
+  flex: 1;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space-container {
+  text-align: center;
+}
+
+.advice-card {
+  background: #333;
+  color: #f0f0f0;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.advice-card.loading {
+  opacity: 0.5;
+}
+
+.advice-button {
+  background-color: #1890ff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advice-button:hover {
+  background-color: #40a9ff;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.5);
+}
+
+.footer {
+  text-align: center;
+  background: #2c2c2c;
+  color: #f0f0f0;
+  padding: 10px 0;
+}
