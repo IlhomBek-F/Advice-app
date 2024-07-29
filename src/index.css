@@ -5,8 +5,18 @@ body {
   height: 97vh;
 }
 
+#root {
+  width: 100%;
+  max-width: 600px;
+}
+
 .layout {
   padding: 20px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
 }
 
 .share {
@@ -20,8 +30,15 @@ body {
 
 .advice-card {
   text-align: center;
+  min-width: 500px;
 }
 
 .footer {
   text-align: center;
+}
+
+@media screen and (max-width: 580px) {
+  .advice-card {
+    min-width: 350px;
+  }
 }

@@ -27,7 +27,7 @@ const App = () => {
     <Layout className="layout">
       <Content className="content">
         <Space direction="vertical" size="large" align="center" className="space-container">
-          <Card className="advice-card" loading={loading} bordered={false} style={{ minWidth: 500 }}>
+          <Card className="advice-card" loading={loading} bordered={false}>
             <Text>{advice}</Text>
           </Card>
           <Share />
