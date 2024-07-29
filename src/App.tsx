@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Layout, Button, Card, Typography, Space } from 'antd';
 import { BulbOutlined } from '@ant-design/icons';
-// import 'antd/dist/antd.css';
 import './App.css';
+import Share from './Components/Share';
 
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 const { Text } = Typography;
 
 const App = () => {
@@ -25,14 +25,12 @@ const App = () => {
 
   return (
     <Layout className="layout">
-      <Header className="header">
-        <div className="logo">AdviceApp</div>
-      </Header>
       <Content className="content">
         <Space direction="vertical" size="large" align="center" className="space-container">
-          <Card className="advice-card" loading={loading} bordered={false}>
+          <Card className="advice-card" loading={loading} bordered={false} style={{ minWidth: 500 }}>
             <Text>{advice}</Text>
           </Card>
+          <Share />
           <Button
             type="primary"
             icon={<BulbOutlined />}
@@ -44,7 +42,7 @@ const App = () => {
           </Button>
         </Space>
       </Content>
-      <Footer className="footer">Advice App ©2024 Created by You</Footer>
+      <Footer className="footer">Advice App ©2024 Created by IT</Footer>
     </Layout>
   );
 };
