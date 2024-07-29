@@ -1,41 +1,33 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { Layout, Button, Card, Typography, Space } from 'antd';
 import { BulbOutlined } from '@ant-design/icons';
-import './App.css';
 import Share from './Components/Share';
+import useFetchAdvice from './hooks/useFetchAdvice';
 
 const { Content, Footer } = Layout;
 const { Text } = Typography;
 
 const App = () => {
-  const [advice, setAdvice] = useState('Click the button to get a piece of advice.');
-  const [loading, setLoading] = useState(false);
+  const {data, fetchAdvice} = useFetchAdvice();
 
-  const getRandomAdvice = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch('https://api.adviceslip.com/advice');
-      const data = await response.json();
-      setAdvice(data.slip.advice);
-    } catch (error) {
-      setAdvice('Failed to fetch advice. Please try again.');
-    }
-    setLoading(false);
-  };
+  useEffect(() => {
+    fetchAdvice()
+  }, [])
 
   return (
     <Layout className="layout">
       <Content className="content">
         <Space direction="vertical" size="large" align="center" className="space-container">
-          <Card className="advice-card" loading={loading} bordered={false}>
-            <Text>{advice}</Text>
+          <Card className="advice-card" loading={data.loading} bordered={false}>
+            <Text>{data.advice}</Text>
           </Card>
-          <Share />
+          <Share advice={data.advice}/>
           <Button
             type="primary"
             icon={<BulbOutlined />}
+            disabled={data.loading}
             size="large"
-            onClick={getRandomAdvice}
+            onClick={() => fetchAdvice()}
             className="advice-button"
           >
             Get Random Advice

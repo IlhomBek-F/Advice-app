@@ -2,15 +2,15 @@
 
 import { TelegramIcon, TelegramShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 
-function Share() {
+function Share({advice}: {advice: string}) {
   const location = window.location.href;
 
   return (
     <div className='share'>
-         <TelegramShareButton title='networkName' url={location}>
+         <TelegramShareButton title={advice} url={location}>
                <TelegramIcon round={true} size={30} className='icon'/>
           </TelegramShareButton>
-          <WhatsappShareButton title='networkName' url={location}>
+          <WhatsappShareButton title={advice} url={location}>
               <WhatsappIcon round={true} size={30}  className='icon'/>
           </WhatsappShareButton>
     </div>
